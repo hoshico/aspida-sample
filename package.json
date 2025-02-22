@@ -7,7 +7,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "generate": "openapi2aspida"
+    "generate": "rm -rf ./apps/frontend/api && openapi2aspida"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
@@ -26,7 +26,6 @@
     "@aspida/axios": "^1.14.0",
     "aspida": "^1.14.0",
     "axios": "^1.7.9",
-    "openapi2aspida": "^0.24.0",
-    "react-query": "^3.39.3"
+    "openapi2aspida": "^0.24.0"
   }
 }

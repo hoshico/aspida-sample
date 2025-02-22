@@ -6,8 +6,8 @@ export type Methods = DefineMethods<{
     status: 200;
     /** A list of users */
     resBody: {
-      id?: number | undefined;
-      name?: string | undefined;
+      id: number;
+      name: string;
     }[];
   };
 }>;

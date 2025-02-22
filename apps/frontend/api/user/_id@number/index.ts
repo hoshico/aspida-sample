@@ -7,8 +7,8 @@ export type Methods = DefineMethods<{
 
     /** A single user */
     resBody: {
-      id?: number | undefined;
-      name?: string | undefined;
+      id: number;
+      name: string;
     };
   };
 }>;
