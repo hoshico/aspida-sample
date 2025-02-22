@@ -21,7 +21,7 @@ export default function UserDetailPage() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold">User Detail</h1>
+      <h1 className="text-2xl font-bold">ユーザー詳細ページ</h1>
       <p>ID: {user.id}</p>
       <p>Name: {user.name}</p>
     </div>
