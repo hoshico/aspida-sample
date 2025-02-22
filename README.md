@@ -1,84 +1,109 @@
-# Turborepo starter
+# TypeScript Monorepo with Next.js & Express
 
-This Turborepo starter is maintained by the Turborepo core team.
+## Overview
+This project is a **TypeScript monorepo** built with **TurboRepo**. It consists of a frontend and backend application:
 
-## Using this example
+- **Frontend**: Next.js 15+ (running on port `8080`)
+- **Backend**: Express (running on port `3001`)
+- **API Client**: Generated using `openapi2aspida`
+- **Package Manager**: pnpm
+- **Development Server**: TurboRepo (to run both frontend & backend simultaneously)
 
-Run the following command:
+---
 
+## Project Structure
 ```sh
-npx create-turbo@latest
+ts-monorepo/
+├── apps/
+│   ├── frontend/    # Next.js 15+ (React Frontend)
+│   ├── backend/     # Express API Server
+│
+├── turbo.json       # TurboRepo config for monorepo execution
+├── package.json     # Root package.json (manages dependencies & scripts)
+├── pnpm-lock.yaml   # Lock file for package dependencies
 ```
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## Setup
+### Prerequisites
+- **Node.js** `>=18.x`
+- **pnpm** (installed globally)
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+If pnpm is not installed, run:
+```sh
+npm install -g pnpm
 ```
 
-### Develop
+---
 
-To develop all apps and packages, run the following command:
-
+## Installation
+Clone the repository and install dependencies:
+```sh
+git clone <repo-url>
+cd ts-monorepo
+pnpm install
 ```
-cd my-turborepo
+
+---
+
+## Development
+Run the frontend (Next.js) and backend (Express) simultaneously:
+```sh
 pnpm dev
 ```
+- Frontend runs at: **`http://localhost:8080`**
+- Backend runs at: **`http://localhost:3001`**
 
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+Alternatively, you can run them separately:
+```sh
+pnpm --filter frontend dev
+pnpm --filter backend dev
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+---
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
+## Backend API Endpoints
+### `GET /users`
+Returns a list of mock users.
+```json
+[
+  { "id": 1, "name": "Alice" },
+  { "id": 2, "name": "Bob" }
+]
 ```
-npx turbo link
+
+### `GET /user/:id`
+Returns a single user by ID or a 404 if not found.
+```json
+{ "id": 1, "name": "Alice" }
 ```
 
-## Useful Links
+---
 
-Learn more about the power of Turborepo:
+## Tech Stack
+- **Frontend**: Next.js 15, TypeScript, React Query
+- **Backend**: Express, TypeScript
+- **API Client**: openapi2aspida, aspida, axios
+- **Monorepo Tooling**: TurboRepo, pnpm
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+---
+
+## Notes
+- API responses are currently mocked (no database yet).
+- The backend serves JSON responses over REST endpoints.
+- Frontend will consume API using `aspida`-generated client.
+
+---
+
+## Next Steps
+- [ ] Integrate `openapi2aspida` for API client generation.
+- [ ] Implement frontend UI components.
+- [ ] Add authentication & middleware to backend.
+- [ ] Connect to a real database.
+
+---
+
+## License
+MIT License
+
