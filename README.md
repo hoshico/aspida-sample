@@ -1,7 +1,6 @@
-# TypeScript Monorepo with Next.js & Express
+# aspidaトレーニング(TypeScript Monorepo with Next.js & Express)
 
-## Overview
-This project is a **TypeScript monorepo** built with **TurboRepo**. It consists of a frontend and backend application:
+## 概要
 
 - **Frontend**: Next.js 15+ (running on port `8080`)
 - **Backend**: Express (running on port `3001`)
@@ -11,9 +10,9 @@ This project is a **TypeScript monorepo** built with **TurboRepo**. It consists 
 
 ---
 
-## Project Structure
+## 構成
 ```sh
-ts-monorepo/
+aspida-sample/
 ├── apps/
 │   ├── frontend/    # Next.js 15+ (React Frontend)
 │   ├── backend/     # Express API Server
@@ -25,8 +24,8 @@ ts-monorepo/
 
 ---
 
-## Setup
-### Prerequisites
+## 設定
+### 前提条件
 - **Node.js** `>=18.x`
 - **pnpm** (installed globally)
 
@@ -37,29 +36,23 @@ npm install -g pnpm
 
 ---
 
-## Installation
+## インストール
 Clone the repository and install dependencies:
 ```sh
-git clone <repo-url>
-cd ts-monorepo
+git clone git@github.com:hoshico/aspida-sample.git
+cd aspida-sample
 pnpm install
 ```
 
 ---
 
-## Development
-Run the frontend (Next.js) and backend (Express) simultaneously:
+## 開発
+フロントエンド（Next.js）とバックエンド（Express）を同時に実行する:
 ```sh
 pnpm dev
 ```
 - Frontend runs at: **`http://localhost:8080`**
 - Backend runs at: **`http://localhost:3001`**
-
-Alternatively, you can run them separately:
-```sh
-pnpm --filter frontend dev
-pnpm --filter backend dev
-```
 
 ---
 
@@ -78,31 +71,3 @@ Returns a single user by ID or a 404 if not found.
 ```json
 { "id": 1, "name": "Alice" }
 ```
-
----
-
-## Tech Stack
-- **Frontend**: Next.js 15, TypeScript, React Query
-- **Backend**: Express, TypeScript
-- **API Client**: openapi2aspida, aspida, axios
-- **Monorepo Tooling**: TurboRepo, pnpm
-
----
-
-## Notes
-- API responses are currently mocked (no database yet).
-- The backend serves JSON responses over REST endpoints.
-- Frontend will consume API using `aspida`-generated client.
-
----
-
-## Next Steps
-- [ ] Integrate `openapi2aspida` for API client generation.
-- [ ] Implement frontend UI components.
-- [ ] Add authentication & middleware to backend.
-- [ ] Connect to a real database.
-
----
-
-## License
-MIT License
