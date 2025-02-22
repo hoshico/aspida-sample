@@ -20,5 +20,11 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "aspida": "^1.14.0",
+    "axios": "^1.7.9",
+    "openapi2aspida": "^0.24.0",
+    "react-query": "^3.39.3"
+  }
 }

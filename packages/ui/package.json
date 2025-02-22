@@ -11,13 +11,8 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
-=======
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
->>>>>>> 0805937 (initial commit)
     "@turbo/gen": "^2.4.0",
     "@types/node": "^22.13.0",
     "@types/react": "19.0.8",
