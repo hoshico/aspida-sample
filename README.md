@@ -106,4 +106,3 @@ Returns a single user by ID or a 404 if not found.
 
 ## License
 MIT License
-
